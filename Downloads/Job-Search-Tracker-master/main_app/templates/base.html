@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <div>
+            <ul>
+                <li><a href="/" class="">&nbsp;&nbsp;Job Search Tracker</a></li>
+            </ul>
+            <ul class="">
+                {% if user.is_authenticated %}
+                {% comment %}
+                <!-- <li><a href="{% url 'toys_create' %}">Add Application</a></li> -->
+                {% endcomment%}
+                <li><a href="{% url 'logout' %}">Log Out</a></li>
+                {% else %}
+                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                <li><a href="{% url 'login' %}">Log In</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+</body>
+
+</html>
